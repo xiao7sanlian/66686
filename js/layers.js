@@ -605,7 +605,7 @@ addLayer("T", {
     upgrades: {
         11: {
             title: "1-1",
-            description: "当无限次数＜1时，获得点数*1.79e308",
+            description: "当无限次数＜2时，获得点数*1.79e308",
             cost(){
                 a = new Decimal(0)
             if (inChallenge('DC', 14)) a = n(1.79e308)
@@ -2202,7 +2202,7 @@ addLayer("I", {
         11: {
             name: "Normal Challenge 1",
             challengeDescription(){return "点数获取^0.5"},
-            goalDescription(){return "1.79e308 点数"},
+            goalDescription(){return "1 点数"},
             rewardDescription(){return "自动购买之前层级的所有升级"},
             unlocked(){return hasAchievement('A2', 12)},
             onComplete(){
@@ -2211,12 +2211,12 @@ addLayer("I", {
             },
             onEnter(){player.I.inf = player.I.inf.sub(1)},
             onExit(){player.I.inf = player.I.inf.sub(1)},
-            canComplete: function() {return player.points.gte(1.79e308)},
+            canComplete: function() {return player.points.gte(1)},
         },
         12: {
             name: "Normal Challenge 2",
             challengeDescription(){return "所有无限前资源获取^0.9"},
-            goalDescription(){return "1.79e308 点数"},
+            goalDescription(){return "1 点数"},
             rewardDescription(){return "自动购买之前层级的可购买，无限后保留成就"},
             unlocked(){return hasAchievement('A2', 12)},
             onComplete(){
@@ -2225,12 +2225,12 @@ addLayer("I", {
             },
             onEnter(){player.I.inf = player.I.inf.sub(1)},
             onExit(){player.I.inf = player.I.inf.sub(1)},
-            canComplete: function() {return player.points.gte(1.79e308)},
+            canComplete: function() {return player.points.gte(1)},
         },
         13: {
             name: "Normal Challenge 3",
             challengeDescription(){return "游戏速度x0.5"},
-            goalDescription(){return "1.79e308 点数"},
+            goalDescription(){return "1 点数"},
             rewardDescription(){return "解锁黑洞，无限后保留之前主线层级的升级、挑战与里程碑"},
             unlocked(){return hasAchievement('A2', 12)},
             onComplete(){
@@ -2239,7 +2239,7 @@ addLayer("I", {
             },
             onEnter(){player.I.inf = player.I.inf.sub(1)},
             onExit(){player.I.inf = player.I.inf.sub(1)},
-            canComplete: function() {return player.points.gte(1.79e308)},
+            canComplete: function() {return player.points.gte(1)},
         },
         14: {
             name: "Normal Challenge 4",

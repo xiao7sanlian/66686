@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.51",
-	name: "Breaking Update",
+	num: "0.52",
+	name: "Cokecole Update",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -52,7 +52,9 @@ let changelog = `<h1>Changelog:</h1><br>
 		- 增加了12个无限升级，7个可购买<br>
 		- 打破无限与qaqe308层级有效果了<br>
 			<h3>v0.51 Breaking Update 2025/2/6</h3><br/>
-	    - 修改了第一个升级的效果<br>`
+	    - 修改了第一个升级的效果<br>
+		<h3>v0.52 Cokecole Update 2025/8/5</h3><br/>
+	    - 再次修改了第一个升级的效果，更改挑战1/2/3目标<br>`
 
 let winText = `恭喜！你 >暂时< 通关了！`
 
@@ -183,7 +185,7 @@ function getPointGen() {
 
 	if (gain.gte(n(1.79e308))) gain = gain.div(n(1e308)).pow(sc4power()).times(n(1e308)) //sc4
 	if (gain.gte(n('1e616'))) gain = powsoftcap(gain,n('1e616'),sc5power())
-	if (hasUpgrade('T', 11)&&player.I.inf.eq(0)) gain = new Decimal(1.79e308)
+	if (hasUpgrade('T', 11)&&player.I.inf.lt(2)) gain = new Decimal(1.79e308)
 
 	if (player.points.gte(1.79e308)&&!hasUpgrade('I', 21)) gain = n(0)
 	if (player.points.gte(1.79e308)&&inChallenge('I', 16)) gain = n(0)
